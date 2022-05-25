@@ -33,8 +33,8 @@ public class BoostDie extends CustomDice<Symbols>
     public BoostDie()
     {
         List<CustomFace<Symbols>> tmp = new ArrayList<>(6);
-        tmp.add(new CustomFace<>());
-        tmp.add(new CustomFace<>());
+        tmp.add(new CustomFace<>(Symbols.BLANK));
+        tmp.add(new CustomFace<>(Symbols.BLANK));
         tmp.add(new CustomFace<>(Symbols.SUCCESS));
         tmp.add(new CustomFace<>(Symbols.SUCCESS, Symbols.ADVANTAGE));
         tmp.add(new CustomFace<>(Symbols.ADVANTAGE, Symbols.ADVANTAGE));

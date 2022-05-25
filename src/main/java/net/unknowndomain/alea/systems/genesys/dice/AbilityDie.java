@@ -34,7 +34,7 @@ public class AbilityDie extends CustomDice<Symbols>
     public AbilityDie()
     {
         List<CustomFace<Symbols>> tmp = new ArrayList<>(8);
-        tmp.add(new CustomFace<>());
+        tmp.add(new CustomFace<>(Symbols.BLANK));
         tmp.add(new CustomFace<>(Symbols.SUCCESS));
         tmp.add(new CustomFace<>(Symbols.SUCCESS));
         tmp.add(new CustomFace<>(Symbols.SUCCESS, Symbols.SUCCESS));

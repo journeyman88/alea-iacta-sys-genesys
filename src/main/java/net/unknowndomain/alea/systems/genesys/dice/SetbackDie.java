@@ -33,8 +33,8 @@ public class SetbackDie extends CustomDice<Symbols>
     public SetbackDie()
     {
         List<CustomFace<Symbols>> tmp = new ArrayList<>(6);
-        tmp.add(new CustomFace<>());
-        tmp.add(new CustomFace<>());
+        tmp.add(new CustomFace<>(Symbols.BLANK));
+        tmp.add(new CustomFace<>(Symbols.BLANK));
         tmp.add(new CustomFace<>(Symbols.FAILURE));
         tmp.add(new CustomFace<>(Symbols.FAILURE));
         tmp.add(new CustomFace<>(Symbols.THREAT));

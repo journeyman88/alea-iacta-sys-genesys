@@ -27,7 +27,7 @@ import net.unknowndomain.alea.systems.annotations.RpgSystemOption;
  *
  * @author journeyman
  */
-@RpgSystemData(bundleName = "net.unknowndomain.alea.systems.genesys.RpgSystemBundle", groupsName = {"base","risk"}, groupsDesc = {"Extract", "Take a risk"})
+@RpgSystemData(bundleName = "net.unknowndomain.alea.systems.genesys.RpgSystemBundle")
 public class GenesysOptions extends RpgSystemOptions
 {
     @RpgSystemOption(name = "ability", shortcode = "a", description = "genesys.options.ability", argName = "abilityDice")

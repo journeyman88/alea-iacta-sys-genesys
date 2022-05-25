@@ -34,7 +34,7 @@ public class DifficultyDie extends CustomDice<Symbols>
     public DifficultyDie()
     {
         List<CustomFace<Symbols>> tmp = new ArrayList<>(8);
-        tmp.add(new CustomFace<>());
+        tmp.add(new CustomFace<>(Symbols.BLANK));
         tmp.add(new CustomFace<>(Symbols.FAILURE));
         tmp.add(new CustomFace<>(Symbols.FAILURE, Symbols.FAILURE));
         tmp.add(new CustomFace<>(Symbols.THREAT));

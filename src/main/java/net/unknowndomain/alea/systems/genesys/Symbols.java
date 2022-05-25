@@ -23,6 +23,7 @@ import net.unknowndomain.alea.icon.AleaIcon;
  */
 public enum Symbols
 {
+    BLANK("blank"),
     SUCCESS("success"),
     ADVANTAGE("advantage"),
     TRIUMPH("triumph"),

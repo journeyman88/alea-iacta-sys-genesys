@@ -15,13 +15,13 @@
  */
 package net.unknowndomain.alea.systems.genesys;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import net.unknowndomain.alea.random.GenericPool;
 import net.unknowndomain.alea.random.SingleResult;
 import net.unknowndomain.alea.random.customdice.CustomDice;
 import net.unknowndomain.alea.roll.GenericResult;
@@ -34,7 +34,7 @@ import net.unknowndomain.alea.roll.GenericRoll;
 public class GenesysRoll implements GenericRoll
 {
     private final Locale lang; 
-    private final List<CustomDice<Symbols>> dicePool; 
+    private final List<GenericPool<CustomDice<Symbols>, List<Symbols>>> dicePools; 
     protected final Set<GenesysModifiers> mods;
 
     public GenesysRoll(
@@ -51,61 +51,40 @@ public class GenesysRoll implements GenericRoll
         this.lang = lang;
         this.mods = new HashSet<>();
         this.mods.addAll(mod);
-        this.dicePool = new LinkedList<>();
+        this.dicePools = new LinkedList<>();
         if (boost != null)
         {
-            for (int i=0; i<boost; i++)
-            {
-                dicePool.add(GenesysSystem.BOOST_DIE);
-            }
+            dicePools.add(new GenericPool<>(GenesysSystem.BOOST_DIE, boost));
         }
         if (setback != null)
         {
-            for (int i=0; i<setback; i++)
-            {
-                dicePool.add(GenesysSystem.SETBACK_DIE);
-            }
+            dicePools.add(new GenericPool<>(GenesysSystem.SETBACK_DIE, setback));
         }
         if (ability != null)
         {
-            for (int i=0; i<ability; i++)
-            {
-                dicePool.add(GenesysSystem.ABILITY_DIE);
-            }
+            dicePools.add(new GenericPool<>(GenesysSystem.ABILITY_DIE, ability));
         }
         if (difficulty != null)
         {
-            for (int i=0; i<difficulty; i++)
-            {
-                dicePool.add(GenesysSystem.DIFFICULTY_DIE);
-            }
+            dicePools.add(new GenericPool<>(GenesysSystem.DIFFICULTY_DIE, difficulty));
         }
         if (proficiency != null)
         {
-            for (int i=0; i<proficiency; i++)
-            {
-                dicePool.add(GenesysSystem.PROFICIENCY_DIE);
-            }
+            dicePools.add(new GenericPool<>(GenesysSystem.PROFICIENCY_DIE, proficiency));
         }
         if (challenge != null)
         {
-            for (int i=0; i<challenge; i++)
-            {
-                dicePool.add(GenesysSystem.CHALLENGE_DIE);
-            }
+            dicePools.add(new GenericPool<>(GenesysSystem.CHALLENGE_DIE, challenge));
         }
     }
 
     @Override
     public GenericResult getResult()
     {
-        List<SingleResult<List<Symbols>>> results = new ArrayList<>(dicePool.size());
-        dicePool.forEach((CustomDice<Symbols> d) ->
+        List<SingleResult<List<Symbols>>> results = new LinkedList<>();
+        dicePools.forEach(p ->
         {
-            d.nextResult().ifPresent((SingleResult<List<Symbols>> r) -> 
-            { 
-                results.add(r);
-            });
+            results.addAll(p.getResults());
         });
         GenesysResults res = new GenesysResults(results);
         res.setLang(lang);

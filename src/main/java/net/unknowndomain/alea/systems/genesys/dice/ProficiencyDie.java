@@ -34,7 +34,7 @@ public class ProficiencyDie extends CustomDice<Symbols>
     public ProficiencyDie()
     {
         List<CustomFace<Symbols>> tmp = new ArrayList<>(12);
-        tmp.add(new CustomFace<>());
+        tmp.add(new CustomFace<>(Symbols.BLANK));
         tmp.add(new CustomFace<>(Symbols.SUCCESS));
         tmp.add(new CustomFace<>(Symbols.SUCCESS));
         tmp.add(new CustomFace<>(Symbols.SUCCESS, Symbols.SUCCESS));

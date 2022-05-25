@@ -34,7 +34,7 @@ public class ChallengeDie extends CustomDice<Symbols>
     public ChallengeDie()
     {
         List<CustomFace<Symbols>> tmp = new ArrayList<>(12);
-        tmp.add(new CustomFace<>());
+        tmp.add(new CustomFace<>(Symbols.BLANK));
         tmp.add(new CustomFace<>(Symbols.FAILURE));
         tmp.add(new CustomFace<>(Symbols.FAILURE));
         tmp.add(new CustomFace<>(Symbols.FAILURE, Symbols.FAILURE));

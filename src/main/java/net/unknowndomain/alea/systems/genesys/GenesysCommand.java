@@ -62,7 +62,16 @@ public class GenesysCommand extends RpgSystemCommand
         else
         {
             GenesysOptions opt = (GenesysOptions) options;
-            GenericRoll roll = new NotTheEndExtract(lang, opt.getAbility(), opt.getDifficulty(), opt.getProficency(), opt.getChallenge(), opt.getModifiers());
+            GenericRoll roll = new GenesysRoll(
+                    lang, 
+                    opt.getBoost(),
+                    opt.getSetback(),
+                    opt.getAbility(), 
+                    opt.getDifficulty(), 
+                    opt.getProficency(), 
+                    opt.getChallenge(), 
+                    opt.getModifiers()
+            );
             retVal = Optional.of(roll);
         }
         return retVal;

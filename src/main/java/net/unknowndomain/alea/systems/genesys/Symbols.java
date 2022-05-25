@@ -15,16 +15,32 @@
  */
 package net.unknowndomain.alea.systems.genesys;
 
+import net.unknowndomain.alea.icon.AleaIcon;
+
 /**
  *
  * @author journeyman
  */
 public enum Symbols
 {
-    SUCCESS,
-    ADVANTAGE,
-    TRIUMPH,
-    FAILURE,
-    THREAT,
-    DESPAIR
+    SUCCESS("success"),
+    ADVANTAGE("advantage"),
+    TRIUMPH("triumph"),
+    FAILURE("failure"),
+    THREAT("threat"),
+    DESPAIR("despair");
+    
+    private final AleaIcon icon;
+    
+    private Symbols(String iconId)
+    {
+        GenesysSystem system = new GenesysSystem();
+        icon = new AleaIcon(system.getShortcut(), iconId);
+    }
+
+    public AleaIcon getIcon()
+    {
+        return icon;
+    }
+    
 }

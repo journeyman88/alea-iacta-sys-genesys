@@ -16,6 +16,12 @@
 package net.unknowndomain.alea.systems.genesys;
 
 import net.unknowndomain.alea.systems.RpgSystemDescriptor;
+import net.unknowndomain.alea.systems.genesys.dice.AbilityDie;
+import net.unknowndomain.alea.systems.genesys.dice.BoostDie;
+import net.unknowndomain.alea.systems.genesys.dice.ChallengeDie;
+import net.unknowndomain.alea.systems.genesys.dice.DifficultyDie;
+import net.unknowndomain.alea.systems.genesys.dice.ProficiencyDie;
+import net.unknowndomain.alea.systems.genesys.dice.SetbackDie;
 
 /**
  *
@@ -23,6 +29,13 @@ import net.unknowndomain.alea.systems.RpgSystemDescriptor;
  */
 public class GenesysSystem extends RpgSystemDescriptor
 {
+    protected static final BoostDie BOOST_DIE = new BoostDie();
+    protected static final AbilityDie ABILITY_DIE = new AbilityDie();
+    protected static final ProficiencyDie PROFICIENCY_DIE = new ProficiencyDie();
+    protected static final SetbackDie SETBACK_DIE = new SetbackDie();
+    protected static final DifficultyDie DIFFICULTY_DIE = new DifficultyDie();
+    protected static final ChallengeDie CHALLENGE_DIE = new ChallengeDie();
+    
     public GenesysSystem()
     {
         super("Genesys", "gen", "genesys");

@@ -128,7 +128,7 @@ public class GenesysResults extends LocalizedResult
                     messageBuilder.append("( ").append(t.getLabel()).append(" => ");
                     for (Symbols symbol : t.getValue())
                     {
-                        messageBuilder.appendIcon(symbol.getIcon());
+                        messageBuilder.append(symbol.getIcon().getIconId()).append(" ");
                     }
                     messageBuilder.append(") ");
                 }
